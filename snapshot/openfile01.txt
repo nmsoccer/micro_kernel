@@ -1,0 +1,25 @@
+00600000h Opened!
+Loading File System......
+Read!Read!Read!B!A!PID:11do_open11Read!fd3LINE!First!PID:10do_open10B->3Read!fd3
+LINE!0009013Fh03FFh00001C70h07FFh00002076h
+PAGING SUCCESS!
+-----KERNEL ELF-----
+00001400h  ->entry program
+00000034h  ->offset program header Table
+0020h      ->length program header
+0003h      ->number program header
+00000000h  ->offset program section
+00001000h  ->vaddr program section
+00008BB6h  ->size program section
+COPYED!...COPYED!...
+-----IntGATE SUCCESS!----
+C.C.C.C.C.C.C.C.C.C.C.B.B.B.B.C.B.C.C.B.C.C.B.C.C.B.C.C.B.C.C.B.C.C.B.C.C.B.C.C.
+B.C.C.B.C.C.B.C.C.B.C.C.B.C.C.B.C.C.B.C.C.B.C.C.B.C.C.B.C.C.B.C.C.B.C.C.B.C.C.B.
+C.C.B.C.C.B.C.C.B.C.C.B.C.C.B.C.C.B.C.C.B.C.C.B.C.C.B.C.C.B.C.C.B.C.C.B.C.C.B.C.
+C.B.C.C.B.C.C.B.C.C.B.C.C.B.C.C.B.C.C.B.C.C.B.C.C.B.C.C.B.C.C.B.C.C.B.C.C.B.C.C.
+B.C.C.B.C.C.B.C.C.B.C.
+
+
+
+
+

@@ -1,0 +1,10 @@
+xxd -u -a -g l -c 16 -s 0x8000 -l 512 80m.img
+
+文件系统起始：abs_sec:20223 Byte:0x9DFE00 off_sec:0
+超级块起始：abs_sec:20224 Btye:0x9E0000 off_sec:1
+FAT32起始：abs_sec:20225 Btye:0x9E0200 off_sec:2
+FAT中数据块起始:abs_sec:20225 + 17 Byte:0x9E2400 off_sec:19
+INODE_TABLE起始:abs_sec:22273 Btye:0xAE0200 off_sec:2050
+根目录起始：abs_sec:22401 Btye:0xAF0200 off_sec:2178
+
+某扇区的起始位置为：0x9DFE00 + off_sec * 0x200

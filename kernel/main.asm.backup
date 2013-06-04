@@ -1,0 +1,122 @@
+global kernel_main
+;global process1 , process2 , process3
+
+extern start , dispstr , delay , delay2 ,  disphexdw , disphexb
+extern init_pcb , get_ticks , init_sys_call_table , init_task_table , disable_irq
+
+
+%include "global.inc"
+;---------data-----------
+head:
+	db "-------kernel_main begins------" , 0x00
+
+leiming:
+	db "leimingbest" , 0x00
+
+
+proc1_content:
+	db "A" , 0x00
+
+proc2_content:
+	db "B" , 0x00
+
+proc3_content:
+	db "C" , 0x00
+
+kernel_main:
+;kernel_main as a stub in process
+
+;display head
+
+	mov dword [videoaddr] , (80 * 14 + 25) * 2
+	M_dispstr head , [videoaddr]
+	mov [videoaddr] , eax
+
+	mov bx , 340
+	M_multiw bx , 340
+	M_disphexd eax , (80 * 3 + 10) * 2
+
+;init NUM_TASK tasks
+	call init_task_table
+
+;init NUM_TASK pcbs
+
+	call init_pcb
+
+;init NUM_SYS_CALL sys_calls
+
+	call init_sys_call_table
+
+;reset clock T=50ms(8253)
+
+	M_out_b TIMER_MODE , RATE_GENERATOR ; mode control reg is 8bits
+
+	M_out_b TIMER0 , TIMER_FREQ/HZ ; for counter0 is 16bits
+	M_out_b TIMER0 , (TIMER_FREQ/HZ >> 8)
+
+;start process
+
+	call start
+
+;	hlt
+;----------PROCESSES-----------
+;process1:
+
+
+;proc1_start:
+
+;	call get_ticks
+;	M_disphexd eax , (80 * 3 + 0) * 2
+
+
+
+;	M_delay2 30
+
+;	M_dispstr proc1_content , [videoaddr]
+;	mov [videoaddr] , eax
+
+
+;	jmp proc1_start
+
+;ret
+
+
+;process2:
+
+;proc2_start:
+
+;	M_dispstr proc2_content , [videoaddr]
+;	mov [videoaddr] , eax
+
+;	M_delay2 90
+
+;	jmp proc2_start
+
+;ret
+
+process3:
+
+	proc3_start:
+
+	M_dispstr proc3_content , [videoaddr]
+	mov [videoaddr] , eax
+
+	M_delay2 270
+
+	jmp proc3_start
+
+ret
+
+
+
+
+
+
+
+
+
+
+
+
+
+
